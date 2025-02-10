@@ -31,7 +31,7 @@ $$9b+7 - 9b - 63 \equiv 0~(\text{mod } b+7)$$
 
 $$-56 \equiv 0~(\text{mod } b+7)$$
 
-The divisors of 56 are $\{1, 2, 4, 7, 8, 14, 28, 56\}$. Trying from these values, we find that only $b=21,49$ works. Therefore, the desired sum is $21+49 = $ $$\boxed{070}$$
+The divisors of 56 are $\{1, 2, 4, 7, 8, 14, 28, 56\}$. Trying $b+7$ from these values, we find that only $b=21,49$ works. Therefore, the desired sum is $21+49 = $ $$\boxed{070}$$
 
 \newpage
 
@@ -64,9 +64,9 @@ label("$F$", F, dir(45));
 label("$G$", G, dir(45));
 label("$M$", M, dir(45));
 label("$N$", N, dir(135));
-\end{asy}\\
+\end{asy}
 
-Through the area of a trapezoid, and by inspection, we have $$[ADF]=[AFM], [DEGF]=[FNEM], \& [EBCG]=[NBCE]$$. Then, it follows that $$[AFNBCEM]=[ABC]$$ Given $AD:DE:EB=1:4:2$, we have $$\frac{[DEGF]}{[ABC]}=\frac{5^2-1^2}{7^2}=\frac{24}{49}$$Then $$[AFNBCEM]=[ABC]=\frac{49}{24}\cdot[DEGF]=\frac{49}{24}\cdot 288=\boxed{588}$$
+Through the area of a trapezoid, and by inspection, we have $$[ADF]=[AFM], [DEGF]=[FNEM], \& [EBCG]=[NBCE]$$. Then, it follows that $$[AFNBCEM]=[ABC]$$ Given $AD:DE:EB=1:4:2$, we have $$\frac{[DEGF]}{[ABC]}=\frac{5^2-1^2}{7^2}=\frac{24}{49}$$Then $$[AFNBCEM]=[ABC]=\frac{49}{24}[DEGF]=\frac{49}{24}\cdot 288=\boxed{588}$$
 
 \newpage
 
@@ -319,7 +319,7 @@ $$(x-k-4)^2 + y^2 = (x-k)^2 - 8(x-k) + y^2 + 16$$
 $$-8(x-k)+16=-6y+9 \implies 8x-6y-8k-7=0$$
 For the circle and the line to have exactly one point in common, the line must be tangent to the circle. The distance from the center of the circle to the line must equal the radius 5. Thus, we use the point-to-line distance formula:
 
-$$d=\frac{|{8(25)-6(20)-8k-7|}}{\sqrt{8^2+(-6)^2}} = \frac{|73-8k|}{10}$$
+$$5=\frac{|{8(25)-6(20)-8k-7|}}{\sqrt{8^2+(-6)^2}} = \frac{|73-8k|}{10}$$
 
 Then we need $${|73-8k|} = 50$$
 
@@ -423,20 +423,20 @@ We then graph the system of inequalities on the XY-plane.
 
 \begin{tikzpicture}[x=0.2cm,y=0.2cm]
 
-    \draw[very thick,->] (-10,0) -- (40,0) node[right] {$x$};
-    \draw[very thick,->] (-5,-5) -- (-5,80) node[above] {$y$};
+    \draw[very thick,->] (-10,0) -- (60,0) node[right] {$x$};
+    \draw[very thick,->] (-5,-10) -- (-5,80) node[above] {$y$};
     
-    \draw[red] (-1,77) -- (38,38) node[left, sloped] {$x+y=76$};
+    \draw[very thick, red] (-4,80) -- (60,16) node[below, sloped] {$x+y=76$};
   
   % Line 2: x=-1  (blue, dashed)
-    \draw[dashed,blue] (-1,-10) -- (-1,77) node[above] {$x=-1$};
+    \draw[very thick,blue] (-1,-10) -- (-1,79) node[above] {$x=-1$};
     
     % Line 3: x=y  (green!50!black, dashed)
-    \draw[dashed,green!50!black] (-10,-10) -- (38,38) node[below right,sloped] {$x=y$};
+    \draw[very thick,green!50!black] (-7,-7) -- (60,60) node[below right,sloped] {$x=y$};
     
     % Line 4: 2y+x=75  (orange, dashed)
     % Note: 2y+x=75  ⟺  y = (75-x)/2.
-    \draw[orange] (-10,42.5) -- (40,17.5) node[below,sloped] {$2y+x=75$};
+    \draw[very thick, orange] (-10,42.5) -- (60,7.5) node[below,sloped] {$2y+x=75$};
     
     % Fill the bounded (finite) region in green.
     % (This is the triangle with vertices A=(-1,-1), B=(-1,38), C=(25,25).)
