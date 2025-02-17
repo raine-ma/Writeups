@@ -1,0 +1,261 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% USE THIS FILE TO SUBMIT YOUR SOLUTIONS   %%
+%%                                          %%
+%% You must have the usamts.tex file in     %%
+%% the same directory as this file.         %%
+%% You do NOT need to submit this file or   %%
+%% usamts.tex with your solutions.  You     %%
+%% only need to submit the output PDF file. %%
+%%                                          %%
+%% I ALTERED THE FILE usamts.tex            %%
+%%                                          %%
+%% If you have any questions or problems    %%
+%% using this file, or with LaTeX in        %%
+%% general, please go to the LaTeX          %%
+%% forum on the Art Of Problem Solving      %%
+%% web site, and post your problem.         %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% I ALTERED THE FOLLOWING LINES
+\documentclass[11pt, letterpaper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\pagestyle{fancy}
+\usepackage{setspace}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\usepackage{minted}
+\setstretch{1.5}
+\usepackage{listings}
+\begin{document}
+\include{usamts}
+%% I ALTERED THE ABOVE LINES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% If you would like to use Asymptote within this document (which is optional), 
+%% you can find out how at the following URL:
+%%
+%%   http://www.artofproblemsolving.com/Wiki/index.php/Asymptote:_Advanced_Configuration
+%%
+%% As explained there, you will want to uncomment the line below.  But be
+%% sure to check the website because there are several other steps that must 
+%% be followed.
+%% \usepackage{asymptote}
+
+%% Enter your real name here
+%% Example: \realname{David Patrick}
+\realname{Raine Ma}
+
+%% Enter your USAMTS username here
+%% Example: \username{DPatrick}
+%% IMPORTANT
+%% If your username contains one of the following characters:
+%%      # $ ~ _ ^ % { } &
+%% then this character must be preceded by a backslash \
+%% for example: if your user name is math_genius, then the line below should 
+%% \username{math\_genius}
+
+\username{433mea}
+
+
+\usamtsid{43191}
+
+\usamtsyear{36}
+\usamtsround{3}
+\begin{solution}{1} 
+
+
+Solution shown below:\\
+\begin{center}
+\includegraphics[width=1.2\linewidth]{r3_p1.png}
+\end{center}
+
+\end{solution}
+
+
+\begin{solution}{2}
+
+The only restriction for the new valid configuration is that the angle between the hour and the minute hands must be equal to the one of the invalid configuration. Let this angle be $\theta$. We seek to find the closest valid time sharing the angle $\theta$ between the hour and the minute hands.\\
+
+Throughout a natural 12-hour cycle, the hour and minute hand will overlap in 11 distinct places, uniformly spaced throughout the clock, due to the constant rate of change of the hour and minute hands. Throughout each rotation, all possible angles in between the minute and hour hand are exhausted, meaning that valid times with our angle $\theta$ will also occur 11 times, just as when $\theta = 0^{\circ}$. \\
+
+This will lead to valid configurations with angle $\theta$ every $\frac{360}{11}^{\circ}$ around the clock. Observe that the clockwise distance between the invalid configuration and the valid configuration is $D$, with $D\in(0,\frac{360}{11})$. Since the invalid configuration is chosen randomly, it is also random $\Mod{\frac{360}{11}}$, so we only need to find the average value of $D$.\\
+
+We use an integral to compute the expected value:
+
+$$\mathbb{E}[D] = \frac{360}{11}\cdot\int_{0}^{1} D \,dD$$
+
+
+$$=\frac{360}{11}\cdot\frac{1}{2} = \boxed{\frac{180}{11}^\circ}$$
+
+
+\end{solution}
+
+\begin{solution}{3}
+
+We first prove statement $a$. Rewrite $x$:
+
+$$x = \sqrt{2a-2\sqrt{a^2 - b}}$$
+
+We can set $b = a^2 - (a-2)^2 = 4a-4$. Simplifying:$$x=\sqrt{2a-2(a-2)}$$ $$x=\sqrt{2a-2a + 4}$$ $$x=2$$ Therefore, for all $a\geq2$, there exists a positive integer $b=4a-4$ such that $x$ is a positive integer. \qed
+
+We prove statement $b$. 
+
+For sufficiently large $a$, specifically for all $a \geq 8$, we can set $b = a^2 - (a-8)^2 = 16a - 64$. Simplifying: $$x = \sqrt{2a-2(a-8)}$$ $$x = \sqrt{2a - 2a + 64}$$ $$x = 8$$ We have proved that for $a\geq2$, $b = 4a-4$ works. For sufficiently large $a$, both $b = 4a-4$ and $b = 16a-64$ work and set $x$ to a positive integer. Therefore, for all sufficiently large $a$, there are at least two $b$ such that $x$ is a positive integer. \qed
+
+
+
+\end{solution}
+
+\begin{solution}{4}
+
+\subsection*{Direction 1: $\overline{\rm{AC}} \perp \overline{\rm{BD}} \implies \overline{\rm{PB}} \perp \overline{\rm{PD}}$}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Screen Shot 2025-01-06 at 6.43.21 PM.png}
+\end{figure}
+
+We are given that $m<BAP = m<CAD$. \\
+
+It follows the the lines $AP$ and $AC$ are the same angular distance from the angle bisector of $A$. In other words, $AP$ is the reflection of $AC$ over the angle bisector of $A$, and vice versa.\\
+
+Note that the orthocenter of $ABD$ lies on $AC$. By definition of an isogonal conjugate, we know that the isogonal conjugate of $H_{ABD}$ will lie on the line $AC$ reflected over the angle bisector of $A$. Therefore, it will lie on $AP$. \\
+
+We are given that $m<BCP = m<ACD$. \\
+
+It follows the the lines $CP$ and $CA$ are the same angular distance from the angle bisector of $C$. In other words, $CP$ is the reflection of $CA$ over the angle bisector of $C$, and vice versa.\\
+
+Note that the orthocenter of $BCD$ lies on $AC$. By definition of an isogonal conjugate, we know that the isogonal conjugate of $H_{BCD}$ will lie on the line $CA$ reflected over the angle bisector of $C$. Therefore, it will lie on $CP$. \\
+
+The is because the isogonal conjugate of the orthocenter of a triangle is the same triangle's circumcenter. Since $ABCD$ is cyclic, the circumcenter of $BCD$ and $ABD$ are equal. Therefore, isogonal conjugate of $H_{BCD}$ and $H_{ABD}$ are both the same, the circumcenter of $ABCD$. \\
+
+Note that we have shown the isogonal conjugate of $H_{BCD}$ and $H_{ABD}$ are equal, and that this isogonal conjugate lies on both $AP$ and $CP$. Therefore, this point is $P$. Combined with our previous results, we conclude that $P$ is the circumcenter of $ABCD$. \\
+
+Observe that BAD and BPD both subtend the same arc BD. Therefore, by the inscribed angle theorem, $m<BPD = 2\cdot m<BAD = 2 \cdot 45^{\circ} = 90^{\circ}$. Then, it immediately follows that $\overline{\rm{PB}} \perp \overline{\rm{PD}}$. \qedsymbol
+\newpage
+\subsection*{Direction 2: not $(\overline{\rm{AC}} \perp \overline{\rm{BD}})$ $\implies$ not $(\overline{\rm{PB}} \perp \overline{\rm{PD}})$}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{New.png}
+\end{figure}
+
+We prove the disjunction of the forward direction, showing that we cannot have both conditions. Assume, for the sake of contradiction, that $\overline{\rm{AC}} \not\perp \overline{\rm{BD}}$ and $(\overline{\rm{PB}} \perp \overline{\rm{PD}})$.  \\
+
+
+Assume $P$ is not the circumcenter. Due to the constraint of the isogonal conjugates of ABD and BCD being equal to the circumcenter, we note that $P$ must be the circumcenter. If $P$ is not the circumcenter, it becomes impossible for both angle equality conditions given in the problem statement and the isogonal conditions to hold. \\
+
+Then without loss of generality, let $P$ remain unchanged, such that $m<BAP$ also is unchanged. For a given A and D, and restricting $C$ to arc $BD$, there is one unique angle $<CAP$ that allows $m<CAD = m<BAP$. Therefore, there is exactly one choice for $C$ such that $m<CAD = m<BAP$, this is easy to see.\\
+
+However, in the forward direction, we have shown that choosing the unique $C$ such that $AC\perp BD$ causes $m<CAD = m<BAP$. \\ Therefore, if $AC \not \perp BD$, there is no choice of $C$ such that $m<CAD = m<BAP$. Hence, these coexisting conditions are impossible.  \qedsymbol
+
+
+
+
+
+
+\end{solution}
+
+\begin{solution}{5}
+
+We first show $a<3$. This leaves us very few cases to search through. 
+
+Let $a\geq3$, then the equation becomes
+
+$$2^{k}\cdot2^3\cdot5^b = 3^c + 1$$
+
+With $k,b,c \geq 0$. Take the equation $\Mod{8}$: $$3^c + 1 \equiv 0 \Mod{8}$$
+$$3^c \equiv 7 \Mod{8}$$
+$$3^0 \equiv 1, 3^1 \equiv 3, 3^2 \equiv 1 \dotsc$$
+$3^c \Mod{8}$ will alternate between 1 and 3 infinitely, and will never equal $7$. Therefore, there are no solutions $(a,b,c)$ with $a>2$. 
+
+\subsection*{Case 1: a = 0}
+
+$$5^b = 3^c + 1$$
+
+Take the equation $\Mod{2}$:
+
+$$1 \equiv 1 + 1 \Mod{2}$$
+
+This is impossible. There are no solutions in this case. 
+
+\subsection*{Case 2: a = 1}
+
+$$2\cdot5^b = 3^c + 1$$
+
+Consider the equation $\Mod{4}$:
+
+$$2 \equiv (-1)^c + 1 \Mod{4}$$
+
+This implies $c$ is even. 
+
+Let $b\geq1$. Rewrite the equation as $$10\cdot5^{b-1} = 9^{\frac{c}{2}} + 1$$
+
+Consider the equation $\Mod{10}$: $$0\equiv (-1)^{\frac{c}{2}} + 1 \Mod{10}$$
+
+This implies $\frac{c}{2}$ is odd. We return to the original equation with this result. 
+
+$$2\cdot5^b = 3^c + 1$$ Since $\frac{c}{2}$ is odd, we can rewrite this as:
+
+$$2\cdot5^{b} = 9^{\frac{c}{2}} - (-1)^{\frac{c}{2}}$$
+
+We apply lifting the exponent, taking $v_5$ of both sides. 
+
+$$b = v_5(10) + v_5(\frac{c}{2}) = 1 + v_5(c)$$
+
+$$b -1= v_5(c)$$ This implies $c\geq 5^{b-1}$. We can set a strong upper bound on $b$ using this fact. Substitute $c= 5^{b-1}$, the worst-case scenario, which allows $b$ to grow as large as possible:
+
+$$2\cdot5^{b-1}\geq3^{5^{b-1}}$$ $b=1$ holds. $b=2$ does not. As $b$ increases, the RHS will grow much faster than the LHS. Therefore, when $b\geq1$, the solutions occur only when $b=1$.
+
+\subsection*{Subcase 2.1: $a=1,b=1$}
+
+$2^1\cdot5^1 - 3^c = 1$
+
+$c=2$
+
+Therefore, the solution derived from this case is $(1,1,2)$.\\
+
+Now consider the case $b=0$ separately.
+
+\subsection*{Subcase 2.2: $a=1,b=0$}
+
+$2^1\cdot1 - 3^c = 1$
+
+$c=0$
+
+Therefore, the solution derived from this case is $(1,0,0)$.\\
+
+\subsection*{Case 3: a = 2}
+
+$$4\cdot5^b = 3^c + 1$$
+
+We show that this cannot hold for any $b > 0$. Let $k,c\geq0$ then $$4\cdot5\cdot5^k = 3^c + 1$$
+
+Taking the equation $\Mod{20}$, this becomes $$3^c \equiv 19 \Mod{20}$$
+
+We look through the first few values $$3^0 \equiv 1, 3^1 \equiv 3, 3^2 \equiv 0, 3^3 \equiv 7, 3^4 \equiv 1\dotsc$$ $3^c \Mod{20}$ will cycle with period 4 and never equal 19. Therefore, $b < 1$. 
+
+\subsubsection*{Subcase 3.1: $a=2,b=0$}
+
+$$2^2 -3^c = 1$$
+\begin{center}
+$c = 1$
+\end{center}
+
+The solution derived from this case is $(2,0,1)$.\\
+
+Combining results from all 3 cases, the ordered triples of nonnegative integers $(a,b,c)$ satisfying this equation are $$\boxed{(1,1,2), (1,0,0), (2,0,1)}$$
+
+\end{solution}
+
+
+
+\end{document}

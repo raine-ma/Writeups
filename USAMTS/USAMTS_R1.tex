@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% USE THIS FILE TO SUBMIT YOUR SOLUTIONS   %%
+%%                                          %%
+%% You must have the usamts.tex file in     %%
+%% the same directory as this file.         %%
+%% You do NOT need to submit this file or   %%
+%% usamts.tex with your solutions.  You     %%
+%% only need to submit the output PDF file. %%
+%%                                          %%
+%% I ALTERED THE FILE usamts.tex            %%
+%%                                          %%
+%% If you have any questions or problems    %%
+%% using this file, or with LaTeX in        %%
+%% general, please go to the LaTeX          %%
+%% forum on the Art Of Problem Solving      %%
+%% web site, and post your problem.         %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% I ALTERED THE FOLLOWING LINES
+\documentclass[11pt, letterpaper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{setspace}
+\setstretch{1.5}
+\begin{document}
+\include{usamts}
+%% I ALTERED THE ABOVE LINES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% If you would like to use Asymptote within this document (which is optional), 
+%% you can find out how at the following URL:
+%%
+%%   http://www.artofproblemsolving.com/Wiki/index.php/Asymptote:_Advanced_Configuration
+%%
+%% As explained there, you will want to uncomment the line below.  But be
+%% sure to check the website because there are several other steps that must 
+%% be followed.
+%% \usepackage{asymptote}
+
+
+%% Enter your real name here
+%% Example: \realname{David Patrick}
+\realname{Raine Ma}
+
+%% Enter your USAMTS username here
+%% Example: \username{DPatrick}
+%% IMPORTANT
+%% If your username contains one of the following characters:
+%%      # $ ~ _ ^ % { } &
+%% then this character must be preceded by a backslash \
+%% for example: if your user name is math_genius, then the line below should be
+%% \username{math\_genius}
+
+\username{433mea}
+
+
+\usamtsid{43191}
+
+\usamtsyear{36}
+\usamtsround{1}
+\begin{solution}{1} 
+
+\centering
+\includegraphics[width=1\linewidth]{Fig_1.png}
+
+
+\end{solution}
+
+
+\begin{solution}{2}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Fig_2.png}
+    \caption{Diagram}
+\end{figure}
+\break
+Let H be the midpoint of EC. EDC is isosceles, therefore DH is an angle bisector and altitude. $$\angle EDC = 120^{\circ} \implies \angle HDC = 60^{\circ}.$$
+$$HC = \frac{1}{2} \cdot EC = \frac{1}{2}$$ 
+
+Observe that DHC is a 30-60-90 triangle. Therefore,
+
+$$DC = \frac{\sqrt{3}}{3}$$
+
+Using the formula for area of a hexagon given side length, 
+
+$$[ABCDEF] = \frac{3\sqrt{3}}{2}\cdot DC^2 = \frac{3\sqrt{3}}{2}\cdot \frac{1}{3} = \boxed{\frac{\sqrt{3}}{2}}$$
+
+\end{solution}
+
+\begin{solution}{3}
+
+We first show that $M < 4$. Split the positive integers $\{1,2,...\dotsc,2024\}$ into two groups, $$\{1,2,3,7,8,9\dotsc\}$$ and$$\{4,5,6,10,11,12\dotsc\}$$ Note that the difference between two consecutive elements is either 1 or 4. Picking more than 3 consecutive elements from either set will always result in the difference between some two elements being 4. By definition, the sequence would not be fibtastic.\\ Therefore, $$M < 4$$
+
+We argue that $M = 3$ holds. Let A and B be defined as they were originally in the problem statement. Without loss of generality, assume that there exists no fibtastic sequence of length 3 in A. Then the difference between some two consecutive elements in A must not be a Fibonacci number.\\ 
+
+Note that the least non-Fibonacci positive integer is 4. Since there exists a non-Fibonacci difference in A, there will be at least 3 consecutive positive integers in B, which are also consecutive elements, since A and B are in increasing order. Therefore, there will always exist a fibtastic sequence of 3 in either A or B no matter how they are constructed. It is unnecessary to examine $M < 3$, as $M = 3$ holds and $M < 4$.\\
+
+Hence, our answer is $$\boxed{M = 3}$$
+
+
+\end{solution}
+
+
+\begin{solution}{4}
+
+Denote the set of all mathematicians as $m$. Define $k$ to be the maximum number of mathematicians asleep at any given moment during the lecture.\\
+
+Let $t(i) =$ [time $m_i$ falls asleep, time $m_i$ wakes up]\\
+
+Put each $m_i$ in a group, the constraint being that any $m_i$ and $m_j$ must not be in the same group if $t(i) \cap t(j) \neq \emptyset$.\\
+
+Observe that in every case of $k$, there will be exactly $k$ groups necessary to separate $k$ mathematicians with overlapping sleep intervals.\\
+
+By the Pigeonhole Principle, if the mathematicians are distributed among $k$ groups, then at least one group is guaranteed to contain $\left\lceil{\frac{26}{k}}\right\rceil$ mathematicians.\\
+
+Assume $k < 6$. Note that $\left\lceil{\frac{26}{k}}\right\rceil \ge 6$ for $k \in \{1,2,3,4,5\}$. Therefore, at least one group will contain 6 or more mathematicians. By our definition, no group can contain any two mathematicians with overlapping sleep intervals. It follows that there will exist at least 6 mathematicians whose sleep intervals never overlap in this case. Note that there are less than 6 holes, therefore there cannot exist a set of 6 mathematicians who are all asleep together at some moment during the lecture in this case.\\ 
+
+Now assume $k \ge 6$. By definition, it follows that there exists a set of 6 mathematicians asleep together at some moment during the lecture. \\
+
+Define A as the truth value of the statement "there exists a set of 6 mathematicians all asleep together at some moment during the lecture" and B as the truth value of "there exists a set of 6 mathematicians such that no two are asleep together at any moment during the lecture". Notice we have already proved "If B, then not A" is true. Then we must prove that "If A, then not B" is true to fully satisfy the "either" condition in the problem. Note that these two statements are contrapositives of eachother, so "If A, then not B" is true. \\
+
+Hence, we have proven that there exists either a set of 6 mathematicians all asleep together at some moment during the lecture, or a set of 6 mathematicians such that no two are asleep together at any moment.
+
+\iffalse
+
+Define $t_f(i)$ to be the time mathematician $i$ falls asleep and $t_w(i)$ to be the time mathematician $i$ wakes up.
+Associate every mathematician $v_i$ with a sleep interval $$[t_f(i),t_w(i)]$$
+Define a graph $G = (V,E)$ such that each vertex represents one mathematician. 
+Connect two vertices $v_i$ and $v_j$ by and edge if and only if $[t_f(i),t_w(i)] \cap [t_f(j),t_w(j)] \neq \emptyset$ \bigskip
+
+
+
+We wish to prove that either $G$ contains a clique of 6 vertices or $G$ contains an independent set of 6 vertices. \\
+
+We now establish equivalence between the Erdős–Szekeres Theorem and the above statement.\\
+
+Given a sequence $a_1,a_2,\dotsc a_n$ of $n = (r-1)(s-1) + 1$ distinct real numbers, construct a graph containing n vertices such that an edge is placed between $v_i$ and $v_j$ if and only if $i<j$ and $a_i < a_j$. \bigskip
+
+Notice that a clique in this graph corresponds to a set of numbers that form an increasing subsequence in the original sequence. Similarly, an independent set in this graph corresponds to a set of numbers that form a decreasing subsequence in the original sequence. \bigskip
+
+Thus, finding a clique of size $r$ in this graph is equivalent to finding an increasing subsequence of length $r$ in the original sequence. Similarly, finding an independent set of size $s$ in the graph is equivalent to finding a decreasing subsequence of length $s$ in the sequence. \bigskip
+
+By the Erdős–Szekeres Theorem, any sequence of $$(6-1)(6-1) + 1 = 26$ distinct real numbers must have either an increasing subsequence of length 6 or a decreasing subsequence of length 6. Using our graph interpretation, this directly translates to a graph of 26 vertices containing either a clique of size 6 or an independent set of size 6. \bigskip
+
+Hence, we have proven that in the set of 26 mathemeticians, there exists either a set of 6 mathematicians such that no two are asleep at the same time, or a set of 6 mathematicians such that there is a moment when all 6 are asleep.
+
+\fi
+
+\end{solution}
+
+\begin{solution}{5}
+
+Expanding $f(f(x)+x)$, we obtain $$f(f(x)+x) = x^4+2x^3+3x^2+x^2b^2+2x+xb^2+2bx^3+3bx^2+3bx+b+2$$
+
+which can be factored into
+
+$$(x^2+bx+1)(x^2+(b+2)x+b+2)$$
+\break
+Denote $f_1(x) = x^2+bx+1$ and $f_2(x) = x^2+(b+2)x+b+2$$.
+
+We wish to find $f_1 (x) \cdot f_2 (x) < 0$
+
+Denote the roots of $f_1 (x)$ as $r_1, r_2 $ and $f_2 (x)$ as $r_3, r_4 $
+
+We solve with the quadratic formula. Then
+
+$$r_1 = \frac{-b+\sqrt{b^2-4}}{2}, r_2 = \frac{-b-\sqrt{b^2-4}}{2}$$
+ 
+And
+
+$$r_3 = \frac{-b-2+\sqrt{b^2-4}}{2}, r_4 = \frac{-b-2-\sqrt{b^2-4}}{2}$$\break
+
+From here, we split into two cases based on the discriminant. \bigskip
+
+Case 1: $b^2-4 \leq 0$\\
+
+Neither $f_1$ nor $f_2$ will ever be negative, therefore, there are no solutions in this case. So, one possible
+value is 0.\\
+
+Case 2: $b^2-4 > 0$\\
+
+Note that $r_3 = r_1 - 1, r_4 = r_2 - 1$\\
+
+We also know that $f_1(x) < 0$ for $x \in (r_2,r_1)$ and $f_2(x) < 0$ for $x \in (r_4,r_3)$\\
+
+We examine 5 critical intervals:
+
+\begin{enumerate}
+
+\item $(- \infty,r_4)$
+
+$f_1(x) > 0$ and $f_2(x) > 0$, therefore $f_1(x)\cdot f_2(x) > 0$ in this interval
+
+\item $(r_4,r_2)$
+
+$f_1(x) > 0$ and $f_2(x) < 0$, therefore $f_1(x)\cdot f_2(x) < 0$ in this interval
+
+\item $(r_2,r_3)$
+
+$f_1(x) < 0$ and $f_2(x) < 0$, therefore $f_1(x)\cdot f_2(x) > 0$ in this interval
+
+\item $(r_3,r_1)$
+
+$f_1(x) < 0$ and $f_2(x) > 0$, therefore $f_1(x)\cdot f_2(x) < 0$ in this interval
+
+\item $(r_1,\infty)$
+
+$f_1(x) > 0$ and $f_2(x) > 0$, therefore $f_1(x)\cdot f_2(x) > 0$ in this interval
+
+\end{enumerate}
+
+
+
+Observe that $f_1(x) \cdot f_2(x) < 0$ for $x \in (r_3,r_1) \cup (r_4,r_2)$\\
+
+Equivalently,\\
+
+$f_1(x) \cdot f_2(x) < 0$ for $x \in (r_1-1,r_1) \cup (r_2-1,r_2)$\\
+
+If $r_1$ and $r_2$ are both integers, then exactly 0 solutions lie in each of $(r_1-1,r_1)$ and $(r_2-1,r_2)$\\
+
+If exactly one of $(r_1, r_2)$ is an integer (e.g. b = 2.5), exactly one solution will lie in either $(r_1-1,r_1)$ or $(r_2-1,r_2)$, leading to a total of 1 solution. \\
+
+If both $r_1$ and $r_2$ are not  integers, exactly one solution will lie in each of $(r_1-1,r_1)$ and $(r_2-1,r_2)$, leading to a total of 2 solutions. \\
+
+Obviously, no more than two integers can exist in $$(r_1-1,r_1) \cup (r_2-1,r_2)$$
+
+Therefore, our answer is $$\boxed{0,1,2}$$
+
+
+\end{solution}
+
+\end{document}
